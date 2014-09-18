@@ -13,6 +13,8 @@ public class BowlOverTest extends TestCase {
 		assertEquals(3 , maxRemainPins);				
 		assertTrue(bowl.rangeSndPoint(2));
 		bowl.sndShot(2);
-		assertEquals(9, bowl.point);
+		assertEquals(7, bowl.countOnePins);
+		assertEquals(2, bowl.countSndPins);
+		
 	}
 }
