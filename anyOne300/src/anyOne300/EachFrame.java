@@ -2,11 +2,13 @@ package anyOne300;
 import java.util.Random;
 
 public class EachFrame {
-	private final static int ALLPIN = 10;
+	public final static int ALLPIN = 10;
 	
 	int firstScore;
 	int sndScore;
 	int totalScore;
+	int frameScore;
+	
 
 	int randomFirstShot() {
 		Random firstRandom = new Random();
@@ -17,6 +19,14 @@ public class EachFrame {
 	void knockOver() {
 		int shot = randomFirstShot();
 		this.firstScore = shot;
+		if(shot != ALLPIN) {
+			sndKnockOver();
+			totalPoint();			
+		}
+		if(shot == ALLPIN) {
+			totalPoint();			
+			return;
+		}
 	}
 
 	int rangeSndPoint() {
@@ -38,10 +48,4 @@ public class EachFrame {
 	void totalPoint() {
 		this.totalScore = firstScore + sndScore;
 	}
-
-	
-	
-	
-
-
 }
