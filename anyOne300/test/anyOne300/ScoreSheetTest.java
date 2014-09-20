@@ -7,6 +7,13 @@ public class ScoreSheetTest extends TestCase {
 		ScoreSheet sheet = new ScoreSheet();
 		sheet.initFrame();
 		sheet.receiveScore();
-		sheet.renderScore();
+//		sheet.renderScore();
+		
 		}
+	public void testAllTenPins() throws Exception {
+		ScoreSheet sheet = new ScoreSheet();
+		sheet.initFrame();
+		sheet.receiveScore();
+		sheet.renderScore();
+	}
 }
