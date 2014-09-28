@@ -1,8 +1,13 @@
 package anyOne300;
 
+import knockDown.FallPins;
+
 public class TenPinsEvent {
 	private static final int TEN_POINT = 10;
-	
+	private static final int STRIKE_FIRST_FRAME = 0;
+	private static final int SPARE_FIRST_FRAME = 1;
+
+	private FallPins fallPins = new FallPins();
 	private final ScoreSheet scoreSheet;
 	private int nthFrame;
 	private EachFrame[] frames;
@@ -14,12 +19,12 @@ public class TenPinsEvent {
 	}
 	
 	ScoreSheet tenPinsEvent() {
-		if(_strike(nthFrame)) {				
-			int frameScore= frames[nthFrame].getTotalScore() + frames[nthFrame - 1].getFrameScore();
-			frames[nthFrame - 1].setFrameScore(frameScore); 
+		if(_strike(nthFrame)) {
+			fallPins.setType(STRIKE_FIRST_FRAME);
+			fallPins.countTotalScore(frames, nthFrame);
 		} else if(_spare(nthFrame)) {
-			int frameScore= frames[nthFrame].getFirstScore() + frames[nthFrame - 1].getFrameScore();
-			frames[nthFrame - 1].setFrameScore(frameScore);
+			fallPins.setType(SPARE_FIRST_FRAME);
+			fallPins.countTotalScore(frames, nthFrame);
 		}
 		return scoreSheet;
 	}

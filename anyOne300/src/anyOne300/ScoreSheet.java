@@ -1,8 +1,15 @@
 package anyOne300;
 
+import knockDown.FallPins;
+
 public class ScoreSheet {
 	private static final int NUMBER_OF_FRAMES = 10;
 	private static final int TEN_POINT = 10;
+	private static final int STRIKE_NOT_FIRST_FRAME = 2;
+	private static final int FIRST_FRAME = 0;
+	
+	private FallPins fallPins;
+	
 	private EachFrame[] frames;
 
 	void initFrame() {
@@ -22,10 +29,12 @@ public class ScoreSheet {
 	}
 
 	private void totalScoreByFrame(int nthFrame) {
-		if(nthFrame > 0) {
+		if(nthFrame > FIRST_FRAME) {
 			tenPinsEvent(nthFrame);			
-			int nFrameScore= frames[nthFrame - 1].getFrameScore() + frames[nthFrame].getTotalScore();
-			frames[nthFrame].setFrameScore(nFrameScore);
+//			int frameScore= frames[nthFrame - 1].getFrameScore() + frames[nthFrame].getTotalScore();
+//			frames[nthFrame].setFrameScore(frameScore);							
+			fallPins.setType(STRIKE_NOT_FIRST_FRAME);
+			fallPins.countTotalScore(frames, nthFrame);
 		} else {			
 			isFirstFrame();
 		}
@@ -33,14 +42,14 @@ public class ScoreSheet {
 
 	private void isFirstFrame() {
 		if(strikeFirstFrame()) {
-			frames[0].setFrameScore(TEN_POINT); 
+			frames[FIRST_FRAME].setFrameScore(TEN_POINT); 
 		} else {
-			frames[0].setFrameScore(frames[0].getTotalScore());
+			frames[FIRST_FRAME].setFrameScore(frames[FIRST_FRAME].getTotalScore());
 		}
 	}
 
 	private boolean strikeFirstFrame() {
-		return frames[0].getFirstScore() == TEN_POINT;
+		return frames[FIRST_FRAME].getFirstScore() == TEN_POINT;
 	}
 	
 	private ScoreSheet tenPinsEvent(int nthFrame) {

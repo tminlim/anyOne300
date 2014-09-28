@@ -8,10 +8,14 @@ public class FallPins {
 	int getType() {
 		return type.getTypeEvent();
 	}
+	public void setType (int _type) {
+		FallPinsType.fallType(_type);
+	}
 	
-	void runTotalScore(EachFrame[] frames, int curFrame) {
+	public void countTotalScore(EachFrame[] frames, int curFrame) {
 		int prevFrame = curFrame - 1;
 		int frameScore;
+		
 		switch (getType()) {
 		case FallPinsType.STRIKE_FIRST_FRAME:
 			frameScore= frames[curFrame].getTotalScore() + frames[prevFrame].getFrameScore();
@@ -30,5 +34,6 @@ public class FallPins {
 			throw new RuntimeException("누적점수를 모르는 상황! ");
 		}
 	}
+
 
 }
