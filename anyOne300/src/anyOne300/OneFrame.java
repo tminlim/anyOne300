@@ -40,7 +40,7 @@ class OneFrame {
 		return random.nextInt(maxRemainPins + 1);		
 	}
 	
-	int getFirstScore() {
+	public int getFirstScore() {
 		return firstScore;
 	}
 	
@@ -48,7 +48,7 @@ class OneFrame {
 		return sndScore;
 	}
 	
-	int getTotalScore() {
+	public int getTotalScore() {
 		return totalScore;
 	}
 	
