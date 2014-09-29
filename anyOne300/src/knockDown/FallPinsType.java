@@ -9,7 +9,7 @@ abstract class FallPinsType {
 			return new StrikeNotFirstFrame();
 		case SPARE_NOT_FIRST_FRAME:
 			return new SpareFirstNotFrame();
-		case NOT_STRIKE_NOT_FIRST_FRAME:
+		case NOT_TEN_NOT_FIRST_FRAME:
 			return new NotStrikeNotFirst();
 		default:
 			throw new IllegalArgumentException("볼링핀에서 일어나지 않는 상황! ");		
@@ -18,7 +18,7 @@ abstract class FallPinsType {
 	
 	static final int STRIKE_NOT_FIRST_FRAME = 0;
 	static final int SPARE_NOT_FIRST_FRAME = 1;
-	static final int NOT_STRIKE_NOT_FIRST_FRAME = 2;
+	static final int NOT_TEN_NOT_FIRST_FRAME = 2;
 	//static final int STRIKE_NOT_FIRST_FRAME= 3;
 
 

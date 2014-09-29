@@ -4,7 +4,7 @@ import knockDown.FallPins;
 
 public class ScoreSheet {
 	private static final int NUMBER_OF_FRAMES = 10;
-	private static final int NOT_STRIKE_NOT_FIRST_FRAME = 2;
+	private static final int NOT_TEN_NOT_FIRST_FRAME = 2;
 	private static final int TEN_POINT = 10;
 	private static final int FIRST_FRAME = 0;
 	
@@ -30,11 +30,8 @@ public class ScoreSheet {
 
 	private void totalScoreByFrame(int nthFrame) {
 		if(nthFrame > FIRST_FRAME) {
-			tenPinsEvent(nthFrame);			
-//			int frameScore= frames[nthFrame - 1].getFrameScore() + frames[nthFrame].getTotalScore();
-//			frames[nthFrame].setFrameScore(frameScore);							
-			fallPins.setType(NOT_STRIKE_NOT_FIRST_FRAME, frames, nthFrame);
-			//fallPins.countTotalScore(frames, nthFrame);
+			tenPinsEvent(nthFrame);									
+			fallPins.setType(NOT_TEN_NOT_FIRST_FRAME, frames, nthFrame);
 		} else {			
 			isFirstFrame();
 		}
@@ -56,7 +53,6 @@ public class ScoreSheet {
 		return new TenPinsEvent(this, frames, nthFrame).tenPinsEvent();
 	}
 
-	
 	void renderScore() {
 		for (EachFrame eachFrame : frames) {
 			System.out.println(String.format("%d + %d = %d (%d) | ", eachFrame.getFirstScore(), eachFrame.getSndScore(), eachFrame.getTotalScore(), eachFrame.getFrameScore()));

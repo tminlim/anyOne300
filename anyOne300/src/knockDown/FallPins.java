@@ -30,7 +30,7 @@ public class FallPins {
 			frameScore= frames[curFrame].getFirstScore() + frames[prevFrame].getFrameScore();
 			frames[prevFrame].setFrameScore(frameScore);	
 			break;
-		case FallPinsType.NOT_STRIKE_NOT_FIRST_FRAME:
+		case FallPinsType.NOT_TEN_NOT_FIRST_FRAME:
 			frameScore= frames[prevFrame].getFrameScore() + frames[curFrame].getTotalScore();
 			frames[curFrame].setFrameScore(frameScore);			
 			break;
