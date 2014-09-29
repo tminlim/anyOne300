@@ -4,8 +4,8 @@ import knockDown.FallPins;
 
 public class ScoreSheet {
 	private static final int NUMBER_OF_FRAMES = 10;
+	private static final int NOT_STRIKE_NOT_FIRST_FRAME = 2;
 	private static final int TEN_POINT = 10;
-	private static final int STRIKE_NOT_FIRST_FRAME = 2;
 	private static final int FIRST_FRAME = 0;
 	
 	private FallPins fallPins;
@@ -33,8 +33,8 @@ public class ScoreSheet {
 			tenPinsEvent(nthFrame);			
 //			int frameScore= frames[nthFrame - 1].getFrameScore() + frames[nthFrame].getTotalScore();
 //			frames[nthFrame].setFrameScore(frameScore);							
-			fallPins.setType(STRIKE_NOT_FIRST_FRAME);
-			fallPins.countTotalScore(frames, nthFrame);
+			fallPins.setType(NOT_STRIKE_NOT_FIRST_FRAME, frames, nthFrame);
+			//fallPins.countTotalScore(frames, nthFrame);
 		} else {			
 			isFirstFrame();
 		}

@@ -3,7 +3,7 @@ package knockDown;
 
 class StrikeFirstFrame extends FallPinsType{
 	int getTypeEvent() {
-		return FallPinsType.SPARE_FIRST_FRAME;
+		return FallPinsType.STRIKE_NOT_FIRST_FRAME;
 	}
 	
 }

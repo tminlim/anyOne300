@@ -4,10 +4,10 @@ import knockDown.FallPins;
 
 public class TenPinsEvent {
 	private static final int TEN_POINT = 10;
-	private static final int STRIKE_FIRST_FRAME = 0;
-	private static final int SPARE_FIRST_FRAME = 1;
+	private static final int STRIKE_NOT_FIRST_FRAME = 0;
+	private static final int SPARE_NOT_FIRST_FRAME = 1;
 
-	private FallPins fallPins = new FallPins();
+	private FallPins fallPins;
 	private final ScoreSheet scoreSheet;
 	private int nthFrame;
 	private EachFrame[] frames;
@@ -20,11 +20,11 @@ public class TenPinsEvent {
 	
 	ScoreSheet tenPinsEvent() {
 		if(_strike(nthFrame)) {
-			fallPins.setType(STRIKE_FIRST_FRAME);
-			fallPins.countTotalScore(frames, nthFrame);
+			fallPins.setType(STRIKE_NOT_FIRST_FRAME, frames, nthFrame);
+//			fallPins.countTotalScore(frames, nthFrame);
 		} else if(_spare(nthFrame)) {
-			fallPins.setType(SPARE_FIRST_FRAME);
-			fallPins.countTotalScore(frames, nthFrame);
+			fallPins.setType(SPARE_NOT_FIRST_FRAME, frames, nthFrame);
+			//fallPins.countTotalScore(frames, nthFrame);
 		}
 		return scoreSheet;
 	}
