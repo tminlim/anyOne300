@@ -6,9 +6,9 @@ abstract class FallPinsType {
 	static FallPinsType fallType (int _type) {
 		switch (_type) {
 		case STRIKE_NOT_FIRST_FRAME:
-			return new StrikeFirstFrame();
+			return new StrikeNotFirstFrame();
 		case SPARE_NOT_FIRST_FRAME:
-			return new SpareFirstFrame();
+			return new SpareFirstNotFrame();
 		case NOT_STRIKE_NOT_FIRST_FRAME:
 			return new NotStrikeNotFirst();
 		default:

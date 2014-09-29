@@ -1,7 +1,7 @@
 package knockDown;
 
 
-public class SpareFirstFrame extends FallPinsType{
+public class SpareFirstNotFrame extends FallPinsType{
 	int getTypeEvent() {
 		return FallPinsType.SPARE_NOT_FIRST_FRAME;
 	}
