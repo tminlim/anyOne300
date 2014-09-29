@@ -32,17 +32,15 @@ public class ScoreSheet {
 		if(nthFrame > FIRST_FRAME) {
 			tenPinsEvent(nthFrame);									
 			fallPins.setType(NOT_TEN_NOT_FIRST_FRAME, frames, nthFrame);
-		} else {			
+		} else 			
 			isFirstFrame();
-		}
 	}
 
 	private void isFirstFrame() {
-		if(strikeFirstFrame()) {
+		if(strikeFirstFrame()) 
 			frames[FIRST_FRAME].setFrameScore(TEN_POINT); 
-		} else {
+		else 
 			frames[FIRST_FRAME].setFrameScore(frames[FIRST_FRAME].getTotalScore());
-		}
 	}
 
 	private boolean strikeFirstFrame() {
@@ -54,8 +52,7 @@ public class ScoreSheet {
 	}
 
 	void renderScore() {
-		for (EachFrame eachFrame : frames) {
+		for (EachFrame eachFrame : frames)
 			System.out.println(String.format("%d + %d = %d (%d) | ", eachFrame.getFirstScore(), eachFrame.getSndScore(), eachFrame.getTotalScore(), eachFrame.getFrameScore()));
-		}
 	}
 }

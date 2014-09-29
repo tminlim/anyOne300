@@ -19,8 +19,6 @@ abstract class FallPinsType {
 	static final int STRIKE_NOT_FIRST_FRAME = 0;
 	static final int SPARE_NOT_FIRST_FRAME = 1;
 	static final int NOT_TEN_NOT_FIRST_FRAME = 2;
-	//static final int STRIKE_NOT_FIRST_FRAME= 3;
-
 
 	
 }

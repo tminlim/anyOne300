@@ -19,13 +19,10 @@ public class TenPinsEvent {
 	}
 	
 	ScoreSheet tenPinsEvent() {
-		if(_strike(nthFrame)) {
+		if(_strike(nthFrame)) 
 			fallPins.setType(STRIKE_NOT_FIRST_FRAME, frames, nthFrame);
-//			fallPins.countTotalScore(frames, nthFrame);
-		} else if(_spare(nthFrame)) {
+		else if(_spare(nthFrame))
 			fallPins.setType(SPARE_NOT_FIRST_FRAME, frames, nthFrame);
-			//fallPins.countTotalScore(frames, nthFrame);
-		}
 		return scoreSheet;
 	}
 
