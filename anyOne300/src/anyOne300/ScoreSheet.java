@@ -1,8 +1,12 @@
 package anyOne300;
 
+import java.util.Scanner;
+
 public class ScoreSheet {
 	private static final int NUMBER_OF_FRAMES = 10;
 	private static final int TEN_POINT = 10;
+	private static final int FIRST_FRAME = 0;
+	private static final int TENTH_FRAME = 9;
 	private EachFrame[] frames;
 
 	void initFrame() {
@@ -22,12 +26,24 @@ public class ScoreSheet {
 	}
 
 	private void totalScoreByFrame(int nthFrame) {
-		if(nthFrame > 0) {
+		if((nthFrame > FIRST_FRAME) && (nthFrame < TENTH_FRAME)) {
 			tenPinsEvent(nthFrame);			
 			int nFrameScore= frames[nthFrame - 1].getFrameScore() + frames[nthFrame].getTotalScore();
 			frames[nthFrame].setFrameScore(nFrameScore);
 		} else {			
 			isFirstFrame();
+		}
+		if(nthFrame == TENTH_FRAME) {
+			if((frames[TENTH_FRAME].getFirstScore() == TEN_POINT)) {
+				frames[TENTH_FRAME].thirdKnockOver();
+				int nFrameScore= frames[TENTH_FRAME].getFrameScore() + frames[TENTH_FRAME].getThrirdScore();
+				frames[TENTH_FRAME].setFrameScore(nFrameScore);
+				
+			} else {
+				int nFrameScore= frames[nthFrame - 1].getFrameScore() + frames[TENTH_FRAME].getTotalScore();
+				frames[TENTH_FRAME].setFrameScore(nFrameScore);
+				
+			}
 		}
 	}
 
@@ -48,9 +64,14 @@ public class ScoreSheet {
 	}
 
 	
-	void renderScore() {
-		for (EachFrame eachFrame : frames) {
-			System.out.println(String.format("%d + %d = %d (%d) | ", eachFrame.getFirstScore(), eachFrame.getSndScore(), eachFrame.getTotalScore(), eachFrame.getFrameScore()));
+	void renderScore() {	
+		Scanner scanner = new Scanner(System.in);
+		for (int nthFrame = 0; nthFrame < NUMBER_OF_FRAMES; nthFrame++) {
+			if(nthFrame == TENTH_FRAME ) {
+				System.out.print(String.format("[%d|%d|%d][%d] || ", frames[TENTH_FRAME].getFirstScore(), frames[TENTH_FRAME].getSndScore(), frames[TENTH_FRAME].getThrirdScore(),  frames[TENTH_FRAME].getFrameScore()));
+			} else
+				System.out.print(String.format("[%d|%d][%d] || ", frames[nthFrame].getFirstScore(), frames[nthFrame].getSndScore(), frames[nthFrame].getFrameScore()));
 		}
+		scanner.nextLine();
 	}
 }

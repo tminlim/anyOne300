@@ -3,26 +3,32 @@ package anyOne300;
 import java.util.Random;
 
 class OneFrame {
-	private static final int ALLPIN = 10;		
-	private static final int TNEPINS = 10;
+	protected static final int ALLPIN = 10;		
+	protected static final int TENPINS = 10;
 		
 	private int firstScore;
 	private int sndScore;
+	private int thrirdScore;
 	private int totalScore;
 	
 	void knockOver() {
 		oneOrTwoShotFactor();
 	}
+	
+	void thirdKnockOver(){
+		setFirstScore(TENPINS);
+		setThrirdScore(_randomShot(TENPINS));
+	}
 
 	private void oneOrTwoShotFactor() {
-		if(_randomShot(TNEPINS) != ALLPIN) {
-			setFirstScore(_randomShot(TNEPINS)); 
+		if(_randomShot(TENPINS) != ALLPIN) {
+			setFirstScore(_randomShot(TENPINS)); 
 			sndKnockOver();
 		}
 		totalPoint();	
 	}
 	
-	private void sndKnockOver() {
+	protected void sndKnockOver() {
 		setSndScore(_randomShot(_rangeSndPoint()));
 	}
 	
@@ -30,8 +36,7 @@ class OneFrame {
 		return ALLPIN - getFirstScore();
 	}
 
-
-	private void totalPoint() {
+	protected void totalPoint() {
 		setTotalScore(getFirstScore() + getSndScore());
 	}	
 
@@ -62,5 +67,13 @@ class OneFrame {
 	
 	void setTotalScore(int nTotalScore) {
 		totalScore = nTotalScore;
+	}
+	
+	int getThrirdScore() {
+		return thrirdScore;
+	}
+	
+	void setThrirdScore(int thrirdScore) {
+		this.thrirdScore = thrirdScore;
 	}		
 }

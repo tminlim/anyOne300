@@ -15,7 +15,6 @@ public class ScoreSheetTest extends TestCase {
 		ScoreSheet sheet = new ScoreSheet();
 		sheet.initFrame();
 		sheet.receiveScore();
-
 		sheet.renderScore();
 	}
 }
