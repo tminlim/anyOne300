@@ -66,12 +66,14 @@ public class ScoreSheet {
 	
 	void renderScore() {	
 		Scanner scanner = new Scanner(System.in);
+		System.out.print("볼링 게임을 시작합니다! Enter를 힘차게 눌러 볼링공을 던져보세요!!!!");
 		for (int nthFrame = 0; nthFrame < NUMBER_OF_FRAMES; nthFrame++) {
+			scanner.nextLine();
+			System.out.print(String.format("%d번째 프레임입니다. ",nthFrame+1));
 			if(nthFrame == TENTH_FRAME ) {
-				System.out.print(String.format("[%d|%d|%d][%d] || ", frames[TENTH_FRAME].getFirstScore(), frames[TENTH_FRAME].getSndScore(), frames[TENTH_FRAME].getThrirdScore(),  frames[TENTH_FRAME].getFrameScore()));
+				System.out.print(String.format("[ 1세트 : %d점 ] [ 2세트 : %d점 ] [ 3세트 : %d ]  =  총 %d점!  \n ", frames[TENTH_FRAME].getFirstScore(), frames[TENTH_FRAME].getSndScore(), frames[TENTH_FRAME].getThrirdScore(),  frames[TENTH_FRAME].getFrameScore()));
 			} else
-				System.out.print(String.format("[%d|%d][%d] || ", frames[nthFrame].getFirstScore(), frames[nthFrame].getSndScore(), frames[nthFrame].getFrameScore()));
+				System.out.print(String.format("[ 1세트 : %d점 ] [ 2세트 : %d점 ]  =  총 %d점  \n ", frames[nthFrame].getFirstScore(), frames[nthFrame].getSndScore(), frames[nthFrame].getFrameScore()));
 		}
-		scanner.nextLine();
 	}
 }
